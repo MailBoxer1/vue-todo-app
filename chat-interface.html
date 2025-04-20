@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Интерфейс чата</title>
     <style>
-        /* Базовые стили */
+        /* Сброс стилей */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +19,7 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Компоновка интерфейса */
+        /* Основной контейнер чата */
         .chat-container {
             display: grid;
             width: 100%;
@@ -32,7 +32,7 @@
                 "footer footer";
         }
 
-        /* Область заголовка */
+        /* Хедер */
         .header {
             grid-area: header;
             background-color: #4CAF50;
@@ -112,6 +112,7 @@
 
         <aside class="sidebar">
             <h3>Участники (25)</h3>
+            <!-- Список юзеров -->
             <div class="user-list">
                 <div class="user-item">Пользователь 1</div>
                 <div class="user-item">Пользователь 2</div>
@@ -215,7 +216,7 @@
                 <strong>Пользователь 4:</strong> Temporibus autem quibusdam et aut officiis debitis.
             </div>
         </main>
-
+        <!-- Ввод сообщений -->
         <footer class="footer">
             <textarea class="message-input" placeholder="Введите сообщение..."></textarea>
         </footer>
