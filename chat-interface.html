@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерфейс чата</title>
+    <style>
+        /* Сброс стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Основной контейнер чата */
+        .chat-container {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-rows: 50px 1fr 100px;
+            grid-template-columns: 200px 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar chat"
+                "footer footer";
+        }
+
+        /* Шапка (1) */
+        .header {
+            grid-area: header;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            min-width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        /* Левая панель (2) - список участников */
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #f1f1f1;
+            padding: 10px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+
+        /* Правая панель (3) - сообщения чата */
+        .chat {
+            grid-area: chat;
+            background-color: #ffffff;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        /* Подвал (4) - ввод текста */
+        .footer {
+            grid-area: footer;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            min-width: 300px;
+        }
+
+        /* Стили для демонстрации */
+        .user-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #e6f7ff;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .message.sent {
+            background-color: #dcf8c6;
+            margin-left: auto;
+        }
+
+        .message-input {
+            width: 100%;
+            height: 60px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .header-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Шапка (1) -->
+        <header class="header">
+            <div class="header-title">Чат-комната: Общий чат</div>
+        </header>
+
+        <!-- Левая панель (2) - список участников -->
+        <aside class="sidebar">
+            <h3>Участники (25)</h3>
+            <!-- Генерируем контент для демонстрации прокрутки -->
+            <div class="user-list">
+                <div class="user-item">Пользователь 1</div>
+                <div class="user-item">Пользователь 2</div>
+                <div class="user-item">Пользователь 3</div>
+                <div class="user-item">Пользователь 4</div>
+                <div class="user-item">Пользователь 5</div>
+                <div class="user-item">Пользователь 6</div>
+                <div class="user-item">Пользователь 7</div>
+                <div class="user-item">Пользователь 8</div>
+                <div class="user-item">Пользователь 9</div>
+                <div class="user-item">Пользователь 10</div>
+                <div class="user-item">Пользователь 11</div>
+                <div class="user-item">Пользователь 12</div>
+                <div class="user-item">Пользователь 13</div>
+                <div class="user-item">Пользователь 14</div>
+                <div class="user-item">Пользователь 15</div>
+                <div class="user-item">Пользователь 16</div>
+                <div class="user-item">Пользователь 17</div>
+                <div class="user-item">Пользователь 18</div>
+                <div class="user-item">Пользователь 19</div>
+                <div class="user-item">Пользователь 20</div>
+                <div class="user-item">Пользователь 21</div>
+                <div class="user-item">Пользователь 22</div>
+                <div class="user-item">Пользователь 23</div>
+                <div class="user-item">Пользователь 24</div>
+                <div class="user-item">Пользователь 25</div>
+            </div>
+        </aside>
+
+        <!-- Правая панель (3) - сообщения чата -->
+        <main class="chat">
+            <!-- Генерируем контент для демонстрации прокрутки -->
+            <div class="message">
+                <strong>Пользователь 1:</strong> Привет всем! Как дела?
+            </div>
+            <div class="message sent">
+                <strong>Вы:</strong> Привет! У меня всё хорошо, спасибо!
+            </div>
+            <div class="message">
+                <strong>Пользователь 3:</strong> Привет! Я тоже в порядке. Что нового?
+            </div>
+            <div class="message">
+                <strong>Пользователь 4:</strong> Всем привет! Давно не общались.
+            </div>
+            <div class="message sent">
+                <strong>Вы:</strong> Да, давненько. Как прошли выходные?
+            </div>
+            <div class="message">
+                <strong>Пользователь 2:</strong> Отлично! Ходили в парк, погода была замечательная.
+            </div>
+            <div class="message">
+                <strong>Пользователь 5:</strong> А я провел выходные за городом. Было здорово!
+            </div>
+            <div class="message">
+                <strong>Пользователь 1:</strong> Кто-нибудь смотрел новый фильм, который недавно вышел?
+            </div>
+            <div class="message sent">
+                <strong>Вы:</strong> Я смотрел. Отличный фильм, рекомендую!
+            </div>
+            <div class="message">
+                <strong>Пользователь 3:</strong> Я тоже хочу посмотреть. Стоит сходить в кино?
+            </div>
+            <div class="message">
+                <strong>Пользователь 4:</strong> Определенно стоит. Впечатления потрясающие!
+            </div>
+            <div class="message">
+                <strong>Пользователь 2:</strong> Я тоже планирую сходить на выходных.
+            </div>
+            <div class="message sent">
+                <strong>Вы:</strong> Давайте встретимся все вместе и сходим!
+            </div>
+            <div class="message">
+                <strong>Пользователь 5:</strong> Отличная идея! Я за!
+            </div>
+            <div class="message">
+                <strong>Пользователь 1:</strong> Я тоже поддерживаю эту идею.
+            </div>
+            <div class="message">
+                <strong>Пользователь 3:</strong> Когда планируете идти?
+            </div>
+            <div class="message sent">
+                <strong>Вы:</strong> Может быть, в субботу вечером?
+            </div>
+            <div class="message">
+                <strong>Пользователь 4:</strong> Суббота подходит!
+            </div>
+            <div class="message">
+                <strong>Пользователь 2:</strong> Мне тоже подходит.
+            </div>
+            <div class="message">
+                <strong>Пользователь 5:</strong> Договорились! В субботу вечером.
+            </div>
+            <div class="message">
+                <strong>Пользователь 1:</strong> Отлично, встречаемся у кинотеатра в центре города?
+            </div>
+            <div class="message sent">
+                <strong>Вы:</strong> Да, давайте там. Во сколько?
+            </div>
+            <div class="message">
+                <strong>Пользователь 3:</strong> Как насчет 18:00?
+            </div>
+            <div class="message">
+                <strong>Пользователь 4:</strong> 18:00 подходит!
+            </div>
+        </main>
+
+        <!-- Подвал (4) - ввод текста -->
+        <footer class="footer">
+            <textarea class="message-input" placeholder="Введите сообщение..."></textarea>
+        </footer>
+    </div>
+</body>
+</html> 
